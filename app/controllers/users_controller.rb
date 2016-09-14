@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # CHANGE TO ROOT_PATH WHEN IT EXISTS!!!!!
+      session[:user_id] = @user.id
+      # PENDING - CHANGE TO ROOT_PATH WHEN IT EXISTS!!!!!
       redirect_to new_user_path, notice: "Thanks for signing up!"
     else
       flash[:alert] = "Sign up failed. Try again!"

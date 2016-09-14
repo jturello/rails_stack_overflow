@@ -10,7 +10,13 @@
   <body>
     <div class="container">
       <div class="user_header">
-        <%= link_to "Sign Up", new_user_path %>
+        <% if current_user %>
+        <%= link_to "Log Out", session_path("current"), :method => "delete" %> |
+          Logged in as: <span class="logged_in_user blue"><%= current_user.name %></span>.
+        <% else %>
+          <%= link_to "Sign Up", new_user_path %> |
+          <%= link_to "Log In", new_session_path %>
+        <% end %>
       </div>
 
       <div class="flash">

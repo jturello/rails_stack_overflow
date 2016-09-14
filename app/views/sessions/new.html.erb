@@ -1,0 +1,18 @@
+<h1>Login In</h1>
+
+<%= form_tag sessions_path, class: "navbar-form navbar-left search-form" do %>
+  <div class="field">
+    <%= label_tag :name %>
+    <%= text_field_tag :name, params[:name]%>
+  </div>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email]%>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, params[:password]%>
+  </div>
+  <div class="actions"><%= submit_tag "Log In" %></div>
+
+<% end %>
